@@ -9,10 +9,10 @@ export class Maladie extends BaseEntity {
     nom: string;
 
     @Column()
-    catégorie: string;
+    categorie: string;
 
     @Column()
-    gravité: string;
+    gravite: string;
 
     // Ajoutez d'autres champs pertinents ici
 }

@@ -25,11 +25,11 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Maladie.prototype, "cat\u00E9gorie", void 0);
+], Maladie.prototype, "categorie", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Maladie.prototype, "gravit\u00E9", void 0);
+], Maladie.prototype, "gravite", void 0);
 exports.Maladie = Maladie = __decorate([
     (0, typeorm_1.Entity)()
 ], Maladie);
