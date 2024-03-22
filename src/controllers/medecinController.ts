@@ -5,6 +5,14 @@ export class MedecinController {
     constructor() {
     }
 
+    static async deleteMedecin(req: any, res: any) {
+        const id = req.params.id;
+        const medecin = await Medecin.findOne({where: {id: id}});
+        if(!medecin) return res.status(401).json({message: "Medecin not found"})
+        await medecin.remove();
+        return res.json({message: "Medecin deleted"})
+    }
+
     static async updateMedecin(req: any, res: any) {
         /**
          * example of body

@@ -14,6 +14,16 @@ const medecin_1 = require("../entity/medecin");
 class MedecinController {
     constructor() {
     }
+    static deleteMedecin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const medecin = yield medecin_1.Medecin.findOne({ where: { id: id } });
+            if (!medecin)
+                return res.status(401).json({ message: "Medecin not found" });
+            yield medecin.remove();
+            return res.json({ message: "Medecin deleted" });
+        });
+    }
     static updateMedecin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             /**

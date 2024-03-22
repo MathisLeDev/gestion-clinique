@@ -6,6 +6,7 @@ import {Assignation} from "./entity/assignations";
 import {Maladie} from "./entity/maladie";
 import {Patient} from "./entity/patient";
 import {Medecin1711120300391} from "./migrations/1711120300391-medecin";
+import {Patient1711122118715} from "./migrations/1711122118715-patient";
 
 export const appDataSource = new DataSource({
     type: "postgres",
@@ -18,5 +19,5 @@ export const appDataSource = new DataSource({
     logging: true,
     entities: [User, Medecin, Chambre, Assignation, Maladie, Patient],
     subscribers: [],
-    migrations: [Medecin1711120300391],
+    migrations: [Patient1711122118715],
 })

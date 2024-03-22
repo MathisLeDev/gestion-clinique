@@ -6,7 +6,7 @@ import router from "./routes/routes";
 appDataSource
     .initialize()
     .then((conn) => {
-        //conn.runMigrations()
+        // conn.runMigrations()
         console.log("Data Source has been initialized!")
     })
     .catch((err) => {
