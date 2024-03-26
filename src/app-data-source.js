@@ -8,6 +8,7 @@ const chambre_1 = require("./entity/chambre");
 const assignations_1 = require("./entity/assignations");
 const maladie_1 = require("./entity/maladie");
 const patient_1 = require("./entity/patient");
+const _1711478794720_chambre_1 = require("./migrations/1711478794720-chambre");
 exports.appDataSource = new typeorm_1.DataSource({
     type: "postgres",
     host: "172.28.32.1",
@@ -19,5 +20,5 @@ exports.appDataSource = new typeorm_1.DataSource({
     logging: true,
     entities: [user_1.User, medecin_1.Medecin, chambre_1.Chambre, assignations_1.Assignation, maladie_1.Maladie, patient_1.Patient, maladie_1.Maladie],
     subscribers: [],
-    migrations: [],
+    migrations: [_1711478794720_chambre_1.Chambre1711478794720],
 });

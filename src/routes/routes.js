@@ -8,6 +8,7 @@ const userController_1 = require("../controllers/userController");
 const medecinController_1 = require("../controllers/medecinController");
 const patientController_1 = require("../controllers/patientController");
 const maladieController_1 = require("../controllers/maladieController");
+const chambreController_1 = require("../controllers/chambreController");
 const router = express_1.default.Router();
 router.get('/api/user', userController_1.UserController.getUser);
 router.post('/api/user', userController_1.UserController.createUser);
@@ -30,4 +31,8 @@ router.get('/api/maladie/:id', maladieController_1.MaladieController.getMaladieB
 router.post('/api/maladie/', maladieController_1.MaladieController.createMaladie);
 router.delete('/api/maladie/:id', maladieController_1.MaladieController.deleteMaladie);
 router.post('/api/maladie/associer', maladieController_1.MaladieController.associerMaladie);
+router.get('/api/chambre/', chambreController_1.ChambreController.getChambres);
+router.post('/api/chambre/assigner', chambreController_1.ChambreController.assignerChambre);
+router.post('/api/chambre/', chambreController_1.ChambreController.createChambre);
+router.delete('/api/chambre/:id', chambreController_1.ChambreController.deleteChambre);
 exports.default = router;

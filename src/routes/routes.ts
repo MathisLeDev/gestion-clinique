@@ -3,6 +3,7 @@ import {UserController} from "../controllers/userController";
 import {MedecinController} from "../controllers/medecinController";
 import {PatientController} from "../controllers/patientController";
 import { MaladieController } from '../controllers/maladieController';
+import {ChambreController} from "../controllers/chambreController";
 
 const router = express.Router()
 
@@ -46,7 +47,13 @@ router.delete('/api/maladie/:id', MaladieController.deleteMaladie);
 
 router.post('/api/maladie/associer', MaladieController.associerMaladie);
 
+router.get('/api/chambre/', ChambreController.getChambres);
 
+router.post('/api/chambre/assigner', ChambreController.assignerChambre);
+
+router.post('/api/chambre/', ChambreController.createChambre);
+
+router.delete('/api/chambre/:id', ChambreController.deleteChambre);
 
 
 export default router

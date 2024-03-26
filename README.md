@@ -45,8 +45,12 @@ npm start
 
 ### Lancer les tests :
 Il faut avoir le serveur lancé pour lancer les tests avec npm start
-````bash 
+```bash 
 npm test
 ```
 
+### Créer une migration exemple:
+``` bash
+   typeorm migration:create .\src\migrations\patient   
+```
 
