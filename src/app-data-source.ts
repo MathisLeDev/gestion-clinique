@@ -21,5 +21,5 @@ export const appDataSource = new DataSource({
     logging: true,
     entities: [User, Medecin, Chambre, Assignation, Maladie, Patient, Maladie],
     subscribers: [],
-    migrations: [Chambre1711478794720],
+    migrations: [Chambre1711478794720, Medecin1711120300391, Patient1711122118715, Maladie1711122861159],
 })
