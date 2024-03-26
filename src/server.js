@@ -10,7 +10,7 @@ const routes_1 = __importDefault(require("./routes/routes"));
 app_data_source_1.appDataSource
     .initialize()
     .then((conn) => {
-    conn.runMigrations();
+    //conn.runMigrations()
     console.log("Data Source has been initialized!");
 })
     .catch((err) => {

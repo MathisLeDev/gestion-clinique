@@ -11,7 +11,7 @@ import {Maladie1711122861159} from "./migrations/1711122861159-maladie";
 
 export const appDataSource = new DataSource({
     type: "postgres",
-    host: "172.20.32.1",
+    host: "172.26.224.1",
     port: 5432,
     username: "postgres",
     password: "0000",
@@ -20,5 +20,5 @@ export const appDataSource = new DataSource({
     logging: true,
     entities: [User, Medecin, Chambre, Assignation, Maladie, Patient],
     subscribers: [],
-    migrations: [Maladie1711122861159],
+    migrations: [Maladie1711122861159, Patient1711122118715, Medecin1711120300391],
 })

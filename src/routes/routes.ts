@@ -2,6 +2,7 @@ import express from 'express'
 import {UserController} from "../controllers/userController";
 import {MedecinController} from "../controllers/medecinController";
 import {PatientController} from "../controllers/patientController";
+import { MaladieController } from '../controllers/maladieController';
 
 const router = express.Router()
 
@@ -34,6 +35,16 @@ router.post('/api/patient/', PatientController.createPatient);
 router.put('/api/patient/:id', PatientController.updatePatient);
 
 router.delete('/api/patient/:id', PatientController.deletePatient);
+
+router.get('api/maladie/', MaladieController.getMaladies);
+
+router.get('api/maladie/:id', MaladieController.getMaladieById);
+
+router.post('api/maladie/', MaladieController.createMaladie);
+
+router.delete('api/maladie/:id', MaladieController.deleteMaladie);
+
+router.post('api/maladie/associer', MaladieController.associerMaladie);
 
 
 export default router
