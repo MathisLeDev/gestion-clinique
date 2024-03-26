@@ -36,15 +36,17 @@ router.put('/api/patient/:id', PatientController.updatePatient);
 
 router.delete('/api/patient/:id', PatientController.deletePatient);
 
-router.get('api/maladie/', MaladieController.getMaladies);
+router.get('/api/maladie/', MaladieController.getMaladies);
 
-router.get('api/maladie/:id', MaladieController.getMaladieById);
+router.get('/api/maladie/:id', MaladieController.getMaladieById);
 
-router.post('api/maladie/', MaladieController.createMaladie);
+router.post('/api/maladie/', MaladieController.createMaladie);
 
-router.delete('api/maladie/:id', MaladieController.deleteMaladie);
+router.delete('/api/maladie/:id', MaladieController.deleteMaladie);
 
-router.post('api/maladie/associer', MaladieController.associerMaladie);
+router.post('/api/maladie/associer', MaladieController.associerMaladie);
+
+
 
 
 export default router

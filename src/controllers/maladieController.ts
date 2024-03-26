@@ -26,7 +26,8 @@ export class MaladieController {
     static async getMaladies(req: any, res: any) {
         const categorie = req.query.categorie;
         const gravite = req.query.gravite
-        const maladies = await Maladie.find({where: {gravite: gravite, categorie: categorie}});
+        const nom = req.query.nom
+        const maladies = await Maladie.find({where: {nom, gravite, categorie}});
         return res.json(maladies)
     }
 
@@ -56,6 +57,7 @@ export class MaladieController {
                 return res.status(400).json({message: "Patient not found"})
             }
         }
+        return res.json({message: "Maladie associée à tous les patients"})
     }
 
 }
