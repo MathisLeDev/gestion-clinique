@@ -5,11 +5,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const userController_1 = require("../controllers/userController");
+const medecinController_1 = require("../controllers/medecinController");
+const patientController_1 = require("../controllers/patientController");
+const maladieController_1 = require("../controllers/maladieController");
+const chambreController_1 = require("../controllers/chambreController");
 const router = express_1.default.Router();
+router.get('/api/ping', (req, res) => {
+    res.send('pong clinique');
+});
 router.get('/api/user', userController_1.UserController.getUser);
 router.post('/api/user', userController_1.UserController.createUser);
 router.put('/api/user', userController_1.UserController.updateUser);
-router.get('/api/ping', (req, res) => {
-    res.send('pong');
-});
+router.get('/api/medecin/:id', medecinController_1.MedecinController.getMedecinById);
+router.get('/api/medecin/', medecinController_1.MedecinController.getMedecins);
+router.post('/api/medecin/', medecinController_1.MedecinController.createMedecin);
+router.delete('/api/medecin/:id', medecinController_1.MedecinController.deleteMedecin);
+router.put('/api/medecin/:id', medecinController_1.MedecinController.updateMedecin);
+router.get('/api/patient/:id', patientController_1.PatientController.getPatientById);
+router.get('/api/patient/', patientController_1.PatientController.getPatients);
+router.post('/api/patient/', patientController_1.PatientController.createPatient);
+router.put('/api/patient/:id', patientController_1.PatientController.updatePatient);
+router.delete('/api/patient/:id', patientController_1.PatientController.deletePatient);
+router.get('/api/maladie/', maladieController_1.MaladieController.getMaladies);
+router.get('/api/maladie/:id', maladieController_1.MaladieController.getMaladieById);
+router.post('/api/maladie/', maladieController_1.MaladieController.createMaladie);
+router.delete('/api/maladie/:id', maladieController_1.MaladieController.deleteMaladie);
+router.post('/api/maladie/associer', maladieController_1.MaladieController.associerMaladie);
+router.get('/api/chambre/', chambreController_1.ChambreController.getChambres);
+router.post('/api/chambre/assigner', chambreController_1.ChambreController.assignerChambre);
+router.post('/api/chambre/', chambreController_1.ChambreController.createChambre);
+router.delete('/api/chambre/:id', chambreController_1.ChambreController.deleteChambre);
 exports.default = router;

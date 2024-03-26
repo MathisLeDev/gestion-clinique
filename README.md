@@ -34,6 +34,18 @@ docker images ls
 docker exec -it lenomici bash
 ```
 
+
+## ⚠ IMPORTANT ⚠ IMPORTATION DES DONNEES AVEC TYPEORM
+
+La gestion des migrations est dans le app-data-source.ts, il faut donc lancer le serveur pour importer les données
+Si rien ne se passe au lancement. Vérifier dans le serveur.ts que conn.runMigrations() est bien décommenté
+
+#### Créer une migration exemple (Uniquement pour dev):
+``` bash
+   typeorm migration:create .\src\migrations\patient   
+```
+
+
 ## Lancement du serveur :
 
 ### IMPORTANT ⚠
@@ -45,7 +57,7 @@ npm start
 
 ### Lancer les tests :
 Il faut avoir le serveur lancé pour lancer les tests avec npm start
-````bash 
+```bash 
 npm test
 ```
 

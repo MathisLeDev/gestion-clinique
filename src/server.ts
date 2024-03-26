@@ -5,7 +5,8 @@ import router from "./routes/routes";
 // establish database connection
 appDataSource
     .initialize()
-    .then(() => {
+    .then((conn) => {
+        conn.runMigrations()
         console.log("Data Source has been initialized!")
     })
     .catch((err) => {
@@ -32,6 +33,7 @@ app.listen(port, ()=> {
 
 //add listerer for each request
 app.use((req: Request, res: Response, next: Function) => {
+    console.log(`[Request]: ${req.method} ${req.path}`);
     //JwtMiddleware(req, res);
     next();
 });

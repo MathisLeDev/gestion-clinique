@@ -9,7 +9,8 @@ const routes_1 = __importDefault(require("./routes/routes"));
 // establish database connection
 app_data_source_1.appDataSource
     .initialize()
-    .then(() => {
+    .then((conn) => {
+    conn.runMigrations();
     console.log("Data Source has been initialized!");
 })
     .catch((err) => {
@@ -27,6 +28,7 @@ app.listen(port, () => {
 });
 //add listerer for each request
 app.use((req, res, next) => {
+    console.log(`[Request]: ${req.method} ${req.path}`);
     //JwtMiddleware(req, res);
     next();
 });
