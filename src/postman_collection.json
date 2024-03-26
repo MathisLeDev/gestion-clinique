@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "5e021365-c4e3-4607-9e09-9faed11e2f1d",
+		"name": "coord front back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24534686"
+	},
+	"item": [
+		{
+			"name": "MEDECIN",
+			"item": [
+				{
+					"name": "MEDECIN WITH FILTERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/medecin?nom=Dr.%20Mathis&specialite=Cardiologue&coordonnees=221B%20Baker%20Street,%20London",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin"
+							],
+							"query": [
+								{
+									"key": "nom",
+									"value": "Dr.%20Mathis"
+								},
+								{
+									"key": "specialite",
+									"value": "Cardiologue"
+								},
+								{
+									"key": "coordonnees",
+									"value": "221B%20Baker%20Street,%20London"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MEDECIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Dr. Mathis\",\r\n    \"specialite\": \"Cardiologue\",\r\n    \"coordonnees\": \"221B Baker Street, London\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/medecin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MEDECIN BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/medecin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MEDECIN",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nom\": \"Modif\",\r\n   \"specialite\": \"Cardiologue\",\r\n   \"coordonnees\": \"221B Baker Street, London\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/medecin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MEDECIN",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n    \"diagnostic\": \"Mort\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/medecin/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PATIENT",
+			"item": [
+				{
+					"name": "PATIENT WITH FILTERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/patient?age=54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"patient"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "54"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATIENTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/patient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATIENT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n    \"diagnostic\": \"Mort\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/patient/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"patient",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATIENT",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n    \"diagnostic\": \"Mort\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/patient/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"patient",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATIENT BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/patient/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"patient",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MEDECIN Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nom\": \"Modif\",\r\n   \"specialite\": \"Cardiologue\",\r\n   \"coordonnees\": \"221B Baker Street, London\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/medecin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"medecin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MALADIE",
+			"item": [
+				{
+					"name": "MALADIES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/maladie?gravite=Sévère",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"maladie"
+							],
+							"query": [
+								{
+									"key": "gravite",
+									"value": "Sévère"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MALADIE BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/maladie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"maladie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MALADIE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Covid-19\",\r\n    \"gravite\": \"Critique\",\r\n    \"categorie\": \"Virale\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/maladie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"maladie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSOCIER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"maladieId\": 10,\r\n    \"patients\": [\r\n        4,5,6,7,8\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/maladie/associer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"maladie",
+								"associer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MALADIE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Covid-19\",\r\n    \"gravite\": \"Critique\",\r\n    \"categorie\": \"Virale\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/maladie/51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"maladie",
+								"51"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CHAMBRE",
+			"item": [
+				{
+					"name": "CHAMBRES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/chambre/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"chambre",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAMBRE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"MatCha\",\r\n    \"status\": \"Libre\",\r\n    \"numero\": 474\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/chambre/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"chambre",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHAMBRE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/chambre/26545",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"chambre",
+								"26545"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ASSIGNER CHAMBRE Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chambreId\": 1,\r\n    \"patientId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/chambre/assigner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"chambre",
+								"assigner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PING",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
