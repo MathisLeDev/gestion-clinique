@@ -16,47 +16,68 @@ class UserController {
     }
     static getUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const name = req.query.name;
-            console.log(name);
-            const user = yield user_1.User.findOne({ where: { firstName: name } });
-            return res.json(user);
+            try {
+                const name = req.query.name;
+                console.log(name);
+                const user = yield user_1.User.findOne({ where: { firstName: name } });
+                return res.json(user);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while fetching user data"
+                });
+            }
         });
     }
     static createUser(req, res) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            if (!((_a = req === null || req === void 0 ? void 0 : req.body) === null || _a === void 0 ? void 0 : _a.firstName) || !((_b = req === null || req === void 0 ? void 0 : req.body) === null || _b === void 0 ? void 0 : _b.lastName) || !((_c = req === null || req === void 0 ? void 0 : req.body) === null || _c === void 0 ? void 0 : _c.age)) {
-                return res.status(400).send({
-                    message: "Please provide firstName, lastName and age"
+            try {
+                console.log(req.body);
+                if (!((_a = req === null || req === void 0 ? void 0 : req.body) === null || _a === void 0 ? void 0 : _a.firstName) || !((_b = req === null || req === void 0 ? void 0 : req.body) === null || _b === void 0 ? void 0 : _b.lastName) || !((_c = req === null || req === void 0 ? void 0 : req.body) === null || _c === void 0 ? void 0 : _c.age)) {
+                    return res.status(400).send({
+                        message: "Please provide firstName, lastName and age"
+                    });
+                }
+                const { firstName, lastName, age } = req.body;
+                const user = user_1.User.create({ firstName, lastName, age });
+                yield user.save();
+                return res.json(user);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while creating user"
                 });
             }
-            const { firstName, lastName, age } = req.body;
-            const user = user_1.User.create({ firstName, lastName, age });
-            yield user.save();
-            return res.json(user);
         });
     }
     static updateUser(req, res) {
         var _a, _b, _c, _d;
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            if (!((_a = req === null || req === void 0 ? void 0 : req.body) === null || _a === void 0 ? void 0 : _a.id) || !((_b = req === null || req === void 0 ? void 0 : req.body) === null || _b === void 0 ? void 0 : _b.firstName) || !((_c = req === null || req === void 0 ? void 0 : req.body) === null || _c === void 0 ? void 0 : _c.lastName) || !((_d = req === null || req === void 0 ? void 0 : req.body) === null || _d === void 0 ? void 0 : _d.age)) {
-                return res.status(400).send({
-                    message: "Please provide id, firstName, lastName and age"
+            try {
+                console.log(req.body);
+                if (!((_a = req === null || req === void 0 ? void 0 : req.body) === null || _a === void 0 ? void 0 : _a.id) || !((_b = req === null || req === void 0 ? void 0 : req.body) === null || _b === void 0 ? void 0 : _b.firstName) || !((_c = req === null || req === void 0 ? void 0 : req.body) === null || _c === void 0 ? void 0 : _c.lastName) || !((_d = req === null || req === void 0 ? void 0 : req.body) === null || _d === void 0 ? void 0 : _d.age)) {
+                    return res.status(400).send({
+                        message: "Please provide id, firstName, lastName and age"
+                    });
+                }
+                const user = yield user_1.User.findOne({ where: { id: req.body.id } });
+                if (!user) {
+                    return res.status(400).send({
+                        message: "User not found"
+                    });
+                }
+                user.firstName = req.body.firstName;
+                user.lastName = req.body.lastName;
+                user.age = req.body.age;
+                yield user.save();
+                return res.json(user);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while updating user"
                 });
             }
-            const user = yield user_1.User.findOne({ where: { id: req.body.id } });
-            if (!user) {
-                return res.status(400).send({
-                    message: "User not found"
-                });
-            }
-            user.firstName = req.body.firstName;
-            user.lastName = req.body.lastName;
-            user.age = req.body.age;
-            yield user.save();
-            return res.json(user);
         });
     }
 }

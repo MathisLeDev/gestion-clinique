@@ -16,71 +16,91 @@ class PatientController {
     }
     static updatePatient(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            /**
-             * example of body
-             * {
-             *    "diagnostic": "Mort",
-             * }
-             */
-            const id = req.query.id;
-            const patient = yield patient_1.Patient.findOne({ where: { id: id } });
-            if (!patient)
-                return res.status(401).json({ message: "Patient not found" });
-            patient.diagnostic = req.body.diagnostic;
-            yield patient.save();
-            return res.json(patient);
+            try {
+                const id = req.query.id;
+                const patient = yield patient_1.Patient.findOne({ where: { id: id } });
+                if (!patient)
+                    return res.status(401).json({ message: "Patient not found" });
+                patient.diagnostic = req.body.diagnostic;
+                yield patient.save();
+                return res.json(patient);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while updating patient"
+                });
+            }
         });
     }
     static getPatientById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            const patient = yield patient_1.Patient.findOne({ where: { id: id } });
-            if (!patient)
-                return res.status(401).json({ message: "Patient not found" });
-            return res.json(patient);
+            try {
+                const id = req.params.id;
+                const patient = yield patient_1.Patient.findOne({ where: { id: id } });
+                if (!patient)
+                    return res.status(401).json({ message: "Patient not found" });
+                return res.json(patient);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while getting patient by id"
+                });
+            }
         });
     }
     static deletePatient(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            const patient = yield patient_1.Patient.findOne({ where: { id: id } });
-            if (!patient)
-                return res.status(401).json({ message: "Patient not found" });
-            yield patient.remove();
-            return res.json({ message: "Patient deleted" });
+            try {
+                const id = req.params.id;
+                const patient = yield patient_1.Patient.findOne({ where: { id: id } });
+                if (!patient)
+                    return res.status(401).json({ message: "Patient not found" });
+                yield patient.remove();
+                return res.json({ message: "Patient deleted" });
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while deleting patient"
+                });
+            }
         });
     }
     static getPatients(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const age = req.query.age;
-            const nom = req.query.nom;
-            const patients = yield patient_1.Patient.find({ where: { nom: nom, age: age } });
-            return res.json(patients);
+            try {
+                const age = req.query.age;
+                const nom = req.query.nom;
+                const patients = yield patient_1.Patient.find({ where: { nom: nom, age: age } });
+                return res.json(patients);
+            }
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while getting patients"
+                });
+            }
         });
     }
     static createPatient(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const patient = new patient_1.Patient();
-            patient.nom = req.body.nom;
-            patient.age = req.body.age;
-            patient.genre = req.body.genre;
-            patient.diagnostic = req.body.diagnostic;
-            patient.coordonnees = req.body.coordonnees;
-            /* example of body for patient
-            {
-            "nom": "Mathis Brouard",
-            "age": 19,
-            "genre": "Homme",
-            "diagnostic": "Mort",
-            "coordonnees": "221B Baker Street, London"
+            try {
+                const patient = new patient_1.Patient();
+                patient.nom = req.body.nom;
+                patient.age = req.body.age;
+                patient.genre = req.body.genre;
+                patient.diagnostic = req.body.diagnostic;
+                patient.coordonnees = req.body.coordonnees;
+                if (!patient.nom || !patient.age || !patient.genre || !patient.diagnostic || !patient.coordonnees)
+                    return res.status(400).json({ message: "Please provide all fields" });
+                if (!['Homme', 'Femme'].includes(patient.genre))
+                    return res.status(400).json({ message: "Genre not valid" });
+                yield patient.save();
+                return res.json(patient);
             }
-             */
-            if (!patient.nom || !patient.age || !patient.genre || !patient.diagnostic || !patient.coordonnees)
-                return res.status(400).json({ message: "Please provide all fields" });
-            if (!['Homme', 'Femme'].includes(patient.genre))
-                return res.status(400).json({ message: "Genre not valid" });
-            yield patient.save();
-            return res.json(patient);
+            catch (error) {
+                return res.status(500).send({
+                    message: "An unexpected error occurred while creating patient"
+                });
+            }
         });
     }
 }

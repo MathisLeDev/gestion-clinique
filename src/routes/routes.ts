@@ -7,15 +7,15 @@ import {ChambreController} from "../controllers/chambreController";
 
 const router = express.Router()
 
+router.get('/api/ping', (req, res) => {
+    res.send('pong clinique')
+});
+
 router.get('/api/user', UserController.getUser);
 
 router.post('/api/user',  UserController.createUser);
 
 router.put('/api/user',  UserController.updateUser);
-
-router.get('/api/ping', (req, res) => {
-    res.send('pong clinique')
-});
 
 router.get('/api/medecin/:id', MedecinController.getMedecinById);
 
